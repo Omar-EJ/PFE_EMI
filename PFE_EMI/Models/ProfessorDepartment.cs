@@ -1,7 +1,12 @@
-﻿namespace PFE_EMI.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace PFE_EMI.Models
 {
     public class ProfessorDepartment
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Key]
         public string ID_prof { get; set; }
         public string ID_departement { get; set; }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,8 +8,9 @@ namespace PFE_EMI.Models
 {
     public class Etudiant
     {
-       
 
+
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         // Matricule de l'étudiant
         public int ID { get; set; }
 

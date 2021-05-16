@@ -1,7 +1,11 @@
-﻿namespace PFE_EMI.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace PFE_EMI.Models
 {
     public class RemarqueProf
     {
+
+        [Key]
         public int id_remarque { get; set; }
         public int id_prof { get; set; }
         public int id_student { get; set; }
