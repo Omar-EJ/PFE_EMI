@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PFE_EMI.Models.Etudiant>
+﻿@model IEnumerable<PFE_EMI.Models.DemandeEncadrements>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,19 +13,19 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Fname)
+                Professeur
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Lname)
+                Liens Envoyés
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Email)
+                Sujet PFE
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Branch)
+                @Html.DisplayNameFor(model => model.date_depot)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Specialty)
+                Etat
             </th>
             <th></th>
         </tr>
@@ -33,26 +33,35 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            
             <td>
-                @Html.DisplayFor(modelItem => item.Fname)
+                @Html.DisplayFor(modelItem => item.ID_Prof)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Lname)
+                @foreach (var lien in item.liens_complementaires.Split(","))
+                {
+                    <a href="@lien" target="_blank">@lien</a>
+                }
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Email)
+                @Html.DisplayFor(modelItem => item.SujetPFE)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Branch)
+            <td style="text-align: center">
+                @Html.DisplayFor(modelItem => item.date_depot)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Specialty)
+            <td style="text-align: center">
+                @item.reformatState()
             </td>
+            <!--
+                
+            
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
             </td>
+
+            -->
         </tr>
 }
     </tbody>

@@ -19,6 +19,7 @@ namespace PFE_EMI.Models
         public ICollection<Etudiant> Etudiants { get; set; }
         public ICollection<Specialty> Specialty { get; set; }
         public ICollection<ProfessorDepartment> ProfessorDepartments { get; set; }
+        public Professeur Professeur { get; set; }
 
     }
 }

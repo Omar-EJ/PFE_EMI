@@ -37,8 +37,8 @@ namespace PFE_EMI.Data
             context.Specialtys.Add(specialty);
             context.SaveChanges();
             var Etudiants = new Etudiant[]{
-                new Etudiant{Fname = "AIT BEN EL ARBI",Lname = "Anass",Email= "anassaitbenelarbi@student.emi.ac.ma",ID=12345},
-                new Etudiant{Fname = "EL JALAOUI",Lname = "Omar",Email= "omareljalaoui@student.emi.ac.ma",ID=123456}
+                new Etudiant{Fname = "AIT BEN EL ARBI",Lname = "Anass",Email= "anassaitbenelarbi@student.emi.ac.ma",ID=12345,Branch="INF",Specialty="SI"},
+                new Etudiant{Fname = "EL JALAOUI",Lname = "Omar",Email= "omareljalaoui@student.emi.ac.ma",ID=123456,Branch="INF",Specialty="SI"}
             };
 
             foreach (var stud in Etudiants)
@@ -57,9 +57,31 @@ namespace PFE_EMI.Data
             }
             context.SaveChanges();
 
-            context.PFEs.Add(new PFE {ID = 123,id_prof="kabbaj",id_student= 12345,lien_PFE="https://wwww.google.com"  });
-            context.PFEs.Add(new PFE { ID = 124, id_prof = "kabbaj", id_student = 123456, lien_PFE = "https://wwww.google.com" });
+            context.PFEs.Add(new PFE {id_prof="kabbaj",id_student= 12345,lien_PFE="https://wwww.google.com"  });
+            context.PFEs.Add(new PFE { id_prof = "kabbaj", id_student = 123456, lien_PFE = "https://wwww.google.com" });
             context.SaveChanges();
+
+            context.DemandeEncadrements.Add(new DemandeEncadrements {
+                date_depot = new DateTime(2020, 04, 01, 10, 00, 03),
+                ID_Etudiant = 12345,
+                ID_Prof = "kabbaj",
+                ETAT = 1,
+                liens_complementaires = "https://www.google.com,https://www.thexcoders.net,https://www.youtube.com",
+                SujetPFE = "développement d'une platforme pour réduire le temps d'execution d'attente des packets d'une entreprise de livraison"
+            });
+
+            context.DemandeEncadrements.Add(new DemandeEncadrements
+            {
+                date_depot = new DateTime(2020, 04, 01, 16, 16, 44),
+                ID_Etudiant = 12345,
+                ETAT = 0,
+                ID_Prof = "belouadha",
+                liens_complementaires = "https://www.google.com",
+                SujetPFE = "développement d'une platforme pour réduire le temps d'execution d'attente des packets d'une entreprise de livraison"
+            });
+
+            context.SaveChanges();
+
 
 
         }

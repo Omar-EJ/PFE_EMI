@@ -29,13 +29,13 @@ namespace PFE_EMI.Models
 
         // spécialité
         [ForeignKey("ID_specialty")]
-        public string ID_specialty { get; set; }
+        public string Specialty { get; set; }
 
         public ICollection<DemandeEncadrements> DemandesEncadrement { get; set; }
         public ICollection<RemarqueProf> RemarquesProf { get; set; }
         public PFE PFE { get; set; }
         public Departement Departement { get; set; }
-        public Specialty Specialty { get; set; }
+        public Specialty SPES { get; set; }
 
     }
 }

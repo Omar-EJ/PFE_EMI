@@ -23,6 +23,7 @@ namespace PFE_EMI.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Etudiant>().HasOne(e => e.PFE).WithOne(p => p.Etudiant).HasForeignKey<PFE>(p => p.id_student);
             modelBuilder.Entity<Etudiant>().ToTable("Etudiant");
             modelBuilder.Entity<Professeur>().ToTable("Professeur");
             modelBuilder.Entity<Departement>().ToTable("Departement");
@@ -32,6 +33,8 @@ namespace PFE_EMI.Data
             modelBuilder.Entity<DemandeEncadrements>().ToTable("DemandesEncadrements");
             modelBuilder.Entity<Specialty>().ToTable("Specialite");
         }
+
+        public DbSet<PFE_EMI.Models.DemandeEncadrements> DemandeEncadrements { get; set; }
 
 
     }
