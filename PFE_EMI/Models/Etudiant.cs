@@ -31,7 +31,7 @@ namespace PFE_EMI.Models
 
         public ICollection<DemandeEncadrements> DemandesEncadrement { get; set; }
         public ICollection<RemarqueProf> RemarquesProf { get; set; }
-        public ICollection<PFE> PFE { get; set; }
+        public PFE PFE { get; set; }
 
 
         public Departement Departement { get; set; }
