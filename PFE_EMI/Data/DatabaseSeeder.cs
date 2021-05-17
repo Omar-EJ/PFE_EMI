@@ -17,8 +17,8 @@ namespace PFE_EMI.Data
             }
 
             var Professors = new Professeur[]{
-                new Professeur{Fname = "BELOUADHA",Lname = "Fatima Zahra",ID= "benlouadha",Disponible = 0},
-                new Professeur{Fname = "KABBAJ",Lname = "Mohamed Issam",ID= "kabbaj",Disponible = 1}
+                new Professeur{Fname = "BELOUADHA",Lname = "Fatima Zahra",ID_prof= "benlouadha",Disponible = 0},
+                new Professeur{Fname = "KABBAJ",Lname = "Mohamed Issam",ID_prof= "kabbaj",Disponible = 1}
          };
             foreach (var prof in Professors)
             {

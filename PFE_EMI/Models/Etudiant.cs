@@ -24,18 +24,17 @@ namespace PFE_EMI.Models
         public string Email { get; set; }
 
         // génie (département)
+        [ForeignKey("code_ID")]
         public string Branch { get; set; }
 
         // spécialité
+        [ForeignKey("ID_specialty")]
         public string ID_specialty { get; set; }
 
         public ICollection<DemandeEncadrements> DemandesEncadrement { get; set; }
         public ICollection<RemarqueProf> RemarquesProf { get; set; }
         public PFE PFE { get; set; }
-
-
         public Departement Departement { get; set; }
-
         public Specialty Specialty { get; set; }
 
     }

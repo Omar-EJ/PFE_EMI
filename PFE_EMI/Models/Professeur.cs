@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PFE_EMI.Models
@@ -10,7 +11,8 @@ namespace PFE_EMI.Models
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         // email du prof (avant @) exemple
         // [ mkabbaj@emi.ac.ma => id = mkabbaj ]
-        public string ID { get; set; } 
+        [Key]
+        public string ID_prof { get; set; } 
 
         // nom du professeur
         public string Fname { get; set; }
