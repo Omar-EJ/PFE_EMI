@@ -4,14 +4,32 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Vos demandes d'encadrements</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    @{
+        var x = true;
+    }
+    @foreach (var item in Model)
+    {
+        if (item.ETAT == 1)
+        {
+            <a href="javascript:void(0)" class="text-muted" style="pointer-events: none;">Create New</a>
+            x = false;
+            break;
+        }
+    }
+    @if (x)
+    {
+        <a asp-action="Create">Create New</a>
+    }
 </p>
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.date_depot)
+            </th>
             <th>
                 Professeur
             </th>
@@ -22,9 +40,6 @@
                 Sujet PFE
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.date_depot)
-            </th>
-            <th>
                 Etat
             </th>
             <th></th>
@@ -33,7 +48,10 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            
+            <td style="text-align: center">
+                @Html.DisplayFor(modelItem => item.date_depot)
+            </td>
+
             <td>
                 @Html.DisplayFor(modelItem => item.ID_Prof)
             </td>
@@ -46,22 +64,56 @@
             <td>
                 @Html.DisplayFor(modelItem => item.SujetPFE)
             </td>
-            <td style="text-align: center">
-                @Html.DisplayFor(modelItem => item.date_depot)
-            </td>
-            <td style="text-align: center">
-                @item.reformatState()
-            </td>
-            <!--
-                
             
+            @if (item.ETAT == 1)
+            {
+                <td style="text-align: center" class="text-success">
+                    @item.reformatState()
+                </td>
+            }
+            else
+            {
+                if (item.ETAT == -2)
+                {
+                    <td style="text-align: center" class="text-danger">
+                        @item.reformatState()
+                    </td>
+                }
+                else
+                {
+                    <td style="text-align: center">
+                        @item.reformatState()
+                    </td>
+                }
+            }
+
+
+
+
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                <form asp-action="cancelRequest">
+                    <input type="hidden" asp-for="@Model.ElementAt(0).ID" value="@item.ID" />
+                    @if (item.ETAT != 0)
+                    {
+                        <input type="submit" value="Annuler" class="btn btn-warning text-white" disabled />
+                    }
+                    else
+                    {
+                        <input type="submit" value="Annuler" class="btn btn-warning text-white" />
+                    }
+                </form>
+
             </td>
 
-            -->
+            <!--
+
+        <td>
+            <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+             <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+     -->
+
         </tr>
 }
     </tbody>

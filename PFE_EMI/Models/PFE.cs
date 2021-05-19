@@ -14,6 +14,7 @@ namespace PFE_EMI.Models
         public Professeur Professeur { get; set; }
 
         public string lien_PFE { get; set; }
+        public string sujet { get; set; }
 
     }
 }

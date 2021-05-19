@@ -172,3 +172,8 @@ E:\Workspaces\.NET\PFE_EMI\PFE_EMI\obj\Debug\netcoreapp3.1\Razor\Views\DemandeEn
 E:\Workspaces\.NET\PFE_EMI\PFE_EMI\obj\Debug\netcoreapp3.1\Razor\Views\DemandeEncadrements\Details.cshtml.g.cs
 E:\Workspaces\.NET\PFE_EMI\PFE_EMI\obj\Debug\netcoreapp3.1\Razor\Views\DemandeEncadrements\Edit.cshtml.g.cs
 E:\Workspaces\.NET\PFE_EMI\PFE_EMI\obj\Debug\netcoreapp3.1\Razor\Views\DemandeEncadrements\Index.cshtml.g.cs
+E:\Workspaces\.NET\PFE_EMI\PFE_EMI\obj\Debug\netcoreapp3.1\Razor\Views\RemarqueProfs\Create.cshtml.g.cs
+E:\Workspaces\.NET\PFE_EMI\PFE_EMI\obj\Debug\netcoreapp3.1\Razor\Views\RemarqueProfs\Delete.cshtml.g.cs
+E:\Workspaces\.NET\PFE_EMI\PFE_EMI\obj\Debug\netcoreapp3.1\Razor\Views\RemarqueProfs\Details.cshtml.g.cs
+E:\Workspaces\.NET\PFE_EMI\PFE_EMI\obj\Debug\netcoreapp3.1\Razor\Views\RemarqueProfs\Edit.cshtml.g.cs
+E:\Workspaces\.NET\PFE_EMI\PFE_EMI\obj\Debug\netcoreapp3.1\Razor\Views\RemarqueProfs\Index.cshtml.g.cs

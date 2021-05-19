@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,22 +14,49 @@ namespace PFE_EMI.Controllers
     public class DemandeEncadrementsController : Controller
     {
         private readonly PFEContext _context;
+        public Boolean hasAcceptedRequest = false;
+
 
         public DemandeEncadrementsController(PFEContext context)
         {
             _context = context;
+            hasAcceptedRequest = setHasAcceptedRequests();
+        }
+
+        public Boolean setHasAcceptedRequests()
+        {
+            ICollection<DemandeEncadrements> list = _context.DemandeEncadrements.ToArray<DemandeEncadrements>();
+            foreach (var item in list)
+            {
+                if (item.ETAT == 1)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         // GET: DemandeEncadrements
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-
-            foreach (var item in _context.DemandeEncadrements)
+            List<DemandeEncadrements> list_res = new List<DemandeEncadrements>();
+            ICollection<DemandeEncadrements> list = _context.DemandeEncadrements.ToArray<DemandeEncadrements>();
+            foreach (var item in list)
             {
+                Professeur p = _context.Professeurs.Find(item.ID_Prof);
+                string lname = "";
+                 foreach(var namePart in p.Lname.Split(" "))
+                {
+                    lname += namePart.Substring(0, 1).ToUpper()+". ";
+                }
+                 item.ID_Prof = p.Fname.ToUpper() + " " + lname;
 
+                //item.ID_Prof = ""; // change later
+                list_res.Add(item);
             }
-            _context.Professeurs.Find
-            return View(await _context.DemandeEncadrements.ToListAsync());
+            // return View(await _context.DemandeEncadrements.ToListAsync());
+            ICollection CateringItems = new List<DemandeEncadrements>(list_res);
+            return View(CateringItems);
         }
 
         // GET: DemandeEncadrements/Details/5
@@ -155,5 +183,17 @@ namespace PFE_EMI.Controllers
         {
             return _context.DemandeEncadrements.Any(e => e.ID == id);
         }
+
+        [HttpPost, ActionName("cancelRequest")]
+        public async Task<IActionResult> cancelRequest(int id){
+            DemandeEncadrements encadrement = _context.DemandeEncadrements.Find(id);
+            encadrement.ETAT = -1;
+            _context.DemandeEncadrements.Update(encadrement);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+
+
     }
 }

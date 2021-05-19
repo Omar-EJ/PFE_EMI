@@ -1,0 +1,42 @@
+﻿@model PFE_EMI.Models.RemarqueProf
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>RemarqueProf</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.id_prof)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.id_prof)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.id_student)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.id_student)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.remarque)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.remarque)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.liens_complementaires)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.liens_complementaires)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.id_remarque">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

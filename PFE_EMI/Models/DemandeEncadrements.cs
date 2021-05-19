@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PFE_EMI.Models
 {
+   
     public class DemandeEncadrements
     {
         
