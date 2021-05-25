@@ -1,4 +1,5 @@
-﻿using PFE_EMI.Models;
+﻿using Microsoft.AspNetCore.Identity;
+using PFE_EMI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ namespace PFE_EMI.Data
 {
     public class DatabaseSeeder
     {
+        
         public static void init(PFEContext context)
         {
             context.Database.EnsureCreated();
@@ -118,6 +120,8 @@ namespace PFE_EMI.Data
             });
 
             context.SaveChanges();
+
+
 
 
         }

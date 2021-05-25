@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -30,7 +31,6 @@ namespace PFE_EMI.Models
         public ICollection<DemandeEncadrements> DemandesEncadrements { get; set; }
         public ICollection<PFE> PFE { get; set; }
         public ICollection<ProfessorDepartment> ProfessorDepartments { get; set; }
-
 
 
     }

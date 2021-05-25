@@ -177,3 +177,11 @@ E:\Workspaces\.NET\PFE_EMI\PFE_EMI\obj\Debug\netcoreapp3.1\Razor\Views\RemarqueP
 E:\Workspaces\.NET\PFE_EMI\PFE_EMI\obj\Debug\netcoreapp3.1\Razor\Views\RemarqueProfs\Details.cshtml.g.cs
 E:\Workspaces\.NET\PFE_EMI\PFE_EMI\obj\Debug\netcoreapp3.1\Razor\Views\RemarqueProfs\Edit.cshtml.g.cs
 E:\Workspaces\.NET\PFE_EMI\PFE_EMI\obj\Debug\netcoreapp3.1\Razor\Views\RemarqueProfs\Index.cshtml.g.cs
+E:\Workspaces\.NET\PFE_EMI\PFE_EMI\obj\Debug\netcoreapp3.1\Razor\Views\Role\Create.cshtml.g.cs
+E:\Workspaces\.NET\PFE_EMI\PFE_EMI\obj\Debug\netcoreapp3.1\PFE_EMI.Properties.Resources.resources
+E:\Workspaces\.NET\PFE_EMI\PFE_EMI\obj\Debug\netcoreapp3.1\PFE_EMI.csproj.GenerateResource.cache
+E:\Workspaces\.NET\PFE_EMI\PFE_EMI\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Login.cshtml.g.cs
+E:\Workspaces\.NET\PFE_EMI\PFE_EMI\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Register.cshtml.g.cs
+E:\Workspaces\.NET\PFE_EMI\PFE_EMI\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\_ViewImports.cshtml.g.cs
+E:\Workspaces\.NET\PFE_EMI\PFE_EMI\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
+E:\Workspaces\.NET\PFE_EMI\PFE_EMI\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
