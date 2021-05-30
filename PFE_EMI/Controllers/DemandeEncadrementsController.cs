@@ -54,7 +54,7 @@ namespace PFE_EMI.Controllers
                 //item.ID_Prof = ""; // change later
                 list_res.Add(item);
             }
-            // return View(await _context.DemandeEncadrements.ToListAsync());
+             //return View(await _context.DemandeEncadrements.ToListAsync());
             ICollection CateringItems = new List<DemandeEncadrements>(list_res);
             return View(CateringItems);
         }

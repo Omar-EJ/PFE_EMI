@@ -118,8 +118,6 @@ namespace PFE_EMI.Data
             });
 
             context.SaveChanges();
-
-
         }
     }
 }
