@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PFE_EMI.Data;
+using PFE_EMI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,9 +38,14 @@ namespace PFE_EMI
 
             //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
             //  .AddEntityFrameworkStores<ApplicationDbContext>();
+            //services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
+            ////.AddDefaultUI()
+            ////.AddEntityFrameworkStores();
+            services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultUI()
+    .AddDefaultTokenProviders();
 
-            services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
-            .AddEntityFrameworkStores<ApplicationDbContext>();
 
 
             services.AddControllersWithViews();
