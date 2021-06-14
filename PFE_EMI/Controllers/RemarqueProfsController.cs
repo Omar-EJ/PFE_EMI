@@ -17,7 +17,7 @@ namespace PFE_EMI.Controllers
     public class RemarqueProfsController : Controller
     {
         private readonly PFEContext _context;
-
+        private int ID_ETUDIANT = 12345;
         public RemarqueProfsController(PFEContext context)
         {
             _context = context;
@@ -26,7 +26,7 @@ namespace PFE_EMI.Controllers
         // GET: RemarqueProfs
         public IActionResult Index()
         {
-            ICollection<RemarqueProf> list = _context.RemarqueProf.Where<RemarqueProf>(rem => rem.id_student == 12345).ToArray<RemarqueProf>();
+            ICollection<RemarqueProf> list = _context.RemarqueProf.Where<RemarqueProf>(rem => rem.id_student == ID_ETUDIANT).ToArray<RemarqueProf>();
 
 
             RemarqueProf item = list.ElementAt(0);

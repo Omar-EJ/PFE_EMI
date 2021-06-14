@@ -1,4 +1,4 @@
-﻿@model PFE_EMI.Models.DemandeEncadrements
+﻿@model PFE_EMI.Models.Display.DemandeEncadrant
 
 @{
     ViewData["Title"] = "Create";
@@ -13,44 +13,44 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="ID_Etudiant" class="control-label"></label>
-                <input asp-for="ID_Etudiant" class="form-control" />
-                <span asp-validation-for="ID_Etudiant" class="text-danger"></span>
+                <input asp-for="ID_Etudiant" type="hidden" value="@Model.ID_Etudiant" class="form-control" />
             </div>
+        
+
             <div class="form-group">
-                <label asp-for="ID_Prof" class="control-label"></label>
-                <input asp-for="ID_Prof" class="form-control" />
-                <span asp-validation-for="ID_Prof" class="text-danger"></span>
+                <select class="form-control" asp-for="ID_Prof">
+                    @foreach (var element in @Model.nomProfs)
+                    {
+                        <option value="@element.ID">@element.nom @element.ID.ToUpper()</option>
+                    }
+                    
+
+
+                </select>
             </div>
+
             <div class="form-group">
-                <label asp-for="liens_complementaires" class="control-label"></label>
-                <input asp-for="liens_complementaires" class="form-control" />
+                <label
+                       
+                       asp-for="liens_complementaires" class="control-label"></label>
+                <input asp-for="liens_complementaires" class="form-control" required/>
                 <span asp-validation-for="liens_complementaires" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="SujetPFE" class="control-label"></label>
-                <input asp-for="SujetPFE" class="form-control" />
+                <input asp-for="SujetPFE" class="form-control" required />
                 <span asp-validation-for="SujetPFE" class="text-danger"></span>
             </div>
+            
             <div class="form-group">
-                <label asp-for="date_depot" class="control-label"></label>
-                <input asp-for="date_depot" class="form-control" />
-                <span asp-validation-for="date_depot" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ETAT" class="control-label"></label>
-                <input asp-for="ETAT" class="form-control" />
-                <span asp-validation-for="ETAT" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Envoyer Demande" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Retour à mes demandes</a>
 </div>
 
 @section Scripts {

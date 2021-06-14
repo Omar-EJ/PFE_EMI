@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PFE_EMI.Data;
 using PFE_EMI.Models;
+using PFE_EMI.Models.Display;
 
 namespace PFE_EMI.Controllers
 {
@@ -16,6 +17,7 @@ namespace PFE_EMI.Controllers
         private readonly PFEContext _context;
         public Boolean hasAcceptedRequest = false;
 
+        private int ID_ETUDIANT = 1234;
 
         public DemandeEncadrementsController(PFEContext context)
         {
@@ -80,7 +82,32 @@ namespace PFE_EMI.Controllers
         // GET: DemandeEncadrements/Create
         public IActionResult Create()
         {
-            return View();
+
+            ICollection<Professeur> list = _context.Professeurs.ToArray<Professeur>();
+            ICollection<DemandeEncadrements> demandes = _context.DemandeEncadrements.ToArray<DemandeEncadrements>();
+            List<Prof> profs = new List<Prof>();
+            foreach (Professeur p in list)
+            {
+                if (p.Disponible == 1)
+                {
+                    var exists = false;
+                    foreach(DemandeEncadrements de in demandes)
+                    {
+                        if (de.ID_Prof == p.ID_prof && de.ETAT != -1)
+                        {
+                            exists = true;
+                            break;
+                        }
+                    }
+                    if (!exists)
+                    {
+                        profs.Add(new Prof { ID = p.ID_prof, nom = p.Lname });
+                    }
+                }
+            }
+
+            DemandeEncadrant demande = new DemandeEncadrant { nomProfs = profs,ID_Etudiant= ID_ETUDIANT };
+            return View(demande);
         }
 
         // POST: DemandeEncadrements/Create

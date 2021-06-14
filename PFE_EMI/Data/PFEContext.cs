@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PFE_EMI.Models.Display;
 
 namespace PFE_EMI.Data
 {
@@ -35,6 +36,8 @@ namespace PFE_EMI.Data
         }
 
         public DbSet<PFE_EMI.Models.DemandeEncadrements> DemandeEncadrements { get; set; }
+
+        public DbSet<PFE_EMI.Models.Display.DemandeEncadrant> DemandeEncadrant { get; set; }
 
 
     }

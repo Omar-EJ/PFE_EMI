@@ -1,0 +1,59 @@
+﻿@model IEnumerable<PFE_EMI.Models.Display.DemandeEncadrant>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID_Etudiant)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ID_Prof)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.liens_complementaires)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SujetPFE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.professeurChoisis)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID_Etudiant)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID_Prof)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.liens_complementaires)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SujetPFE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.professeurChoisis)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

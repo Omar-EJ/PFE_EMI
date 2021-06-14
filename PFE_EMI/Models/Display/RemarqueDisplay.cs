@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 
 namespace PFE_EMI.Models.Display
 {
+
+
     public class RemarqueDisplay
     {
         public string prof { get; set; }

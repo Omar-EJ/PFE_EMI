@@ -1,0 +1,54 @@
+﻿@model PFE_EMI.Models.DemandeEncadrements
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>DemandeEncadrements</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ID_Etudiant)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ID_Etudiant)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ID_Prof)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ID_Prof)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.liens_complementaires)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.liens_complementaires)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SujetPFE)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SujetPFE)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.date_depot)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.date_depot)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ETAT)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ETAT)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

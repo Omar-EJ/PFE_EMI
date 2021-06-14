@@ -70,7 +70,7 @@ namespace PFE_EMI.Data
                 date_depot = new DateTime(2020, 04, 01, 10, 00, 03),
                 ID_Etudiant = 12345,
                 ID_Prof = "kabbaj",
-                ETAT = 1,
+                ETAT = 0,
                 liens_complementaires = "https://www.google.com,https://www.thexcoders.net,https://www.youtube.com",
                 SujetPFE = "développement d'une platforme pour réduire le temps d'execution d'attente des packets d'une entreprise de livraison"
             });

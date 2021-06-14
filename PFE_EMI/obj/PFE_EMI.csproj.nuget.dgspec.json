@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Workspaces\\.NET\\PFE_EMI\\PFE_EMI\\PFE_EMI.csproj": {}
+    "E:\\Workspaces\\.NET\\PFE_EMI_2\\PFE_EMI\\PFE_EMI.csproj": {}
   },
   "projects": {
-    "E:\\Workspaces\\.NET\\PFE_EMI\\PFE_EMI\\PFE_EMI.csproj": {
+    "E:\\Workspaces\\.NET\\PFE_EMI_2\\PFE_EMI\\PFE_EMI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Workspaces\\.NET\\PFE_EMI\\PFE_EMI\\PFE_EMI.csproj",
+        "projectUniqueName": "E:\\Workspaces\\.NET\\PFE_EMI_2\\PFE_EMI\\PFE_EMI.csproj",
         "projectName": "PFE_EMI",
-        "projectPath": "E:\\Workspaces\\.NET\\PFE_EMI\\PFE_EMI\\PFE_EMI.csproj",
+        "projectPath": "E:\\Workspaces\\.NET\\PFE_EMI_2\\PFE_EMI\\PFE_EMI.csproj",
         "packagesPath": "C:\\Users\\Anass\\.nuget\\packages\\",
-        "outputPath": "E:\\Workspaces\\.NET\\PFE_EMI\\PFE_EMI\\obj\\",
+        "outputPath": "E:\\Workspaces\\.NET\\PFE_EMI_2\\PFE_EMI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Anass\\AppData\\Roaming\\NuGet\\NuGet.Config",

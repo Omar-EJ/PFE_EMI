@@ -4,6 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PFE_EMI.Models
 {
+
+   
    
     public class DemandeEncadrements
     {
@@ -20,7 +22,7 @@ namespace PFE_EMI.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy\nHH:mm}", ApplyFormatInEditMode = true)]
         [Display(Name = "Date d'envoie")]
-        public DateTime date_depot { get; set; }
+        public DateTime date_depot { get; set; } = DateTime.Now;
         /*
          * Les valeurs possibles sont:
          *  -2 : refusée
@@ -29,7 +31,7 @@ namespace PFE_EMI.Models
          *   1 : accepté
          *
          */
-        
+
         public int ETAT { get  ; set; }
         public Etudiant Etudiant { get; set; }
         public Professeur Professeur { get; set; }

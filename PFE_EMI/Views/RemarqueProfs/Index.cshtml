@@ -22,44 +22,45 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.listeRemarques) {
-        <tr class="@(item.seen? "bg-light":"")">
+        @foreach (var item in Model.listeRemarques)
+        {
+            <tr class="@(item.seen? "bg-light":"")">
 
-            <td>
-                @Html.DisplayFor(modelItem => item.date_remarque)
-            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.date_remarque)
+                </td>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.remarque)
-            </td>
-            <td>
-                @if (item.liens_complementaires.Length == 0)
-                {
-                    <strong>SANS</strong>
-                }
-                else
-                {
-                     @foreach (var lien in item.liens_complementaires.Split(","))
-                {
-                    <a href="@lien" target="_blank">@lien</a><br />
-                }
+                <td>
+                    @Html.DisplayFor(modelItem => item.remarque)
+                </td>
+                <td>
+                    @if (item.liens_complementaires.Length == 0)
+                    {
+                        <strong>SANS</strong>
+                    }
+                    else
+                    {
+                        @foreach (var lien in item.liens_complementaires.Split(","))
+                        {
+                            <a href="@lien" target="_blank">@lien</a><br />
+                        }
 
-                }
-            </td>
-            <td>
-                <form  asp-action="changeSeenState">
-                    <input type="hidden" asp-for="@Model.listeRemarques.ElementAt(0).id_remarque" value="@item.id_remarque" />
-                    <input type="checkbox" onchange="this.form.submit()" checked="@item.seen" />
-                </form>
-            </td>
-            <!--
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.id_remarque">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id_remarque">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id_remarque">Delete</a>
-            </td>
-    -->
-        </tr>
-}
+                    }
+                </td>
+                <td>
+                    <form asp-action="changeSeenState">
+                        <input type="hidden" asp-for="@Model.listeRemarques.ElementAt(0).id_remarque" value="@item.id_remarque" />
+                        <input type="checkbox" onchange="this.form.submit()" checked="@item.seen" />
+                    </form>
+                </td>
+                <!--
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.id_remarque">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.id_remarque">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.id_remarque">Delete</a>
+                        </td>
+                -->
+            </tr>
+        }
     </tbody>
 </table>

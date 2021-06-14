@@ -24,97 +24,111 @@
         <a asp-action="Create">Create New</a>
     }
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.date_depot)
-            </th>
-            <th>
-                Professeur
-            </th>
-            <th>
-                Liens Envoyés
-            </th>
-            <th>
-                Sujet PFE
-            </th>
-            <th>
-                Etat
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td style="text-align: center">
-                @Html.DisplayFor(modelItem => item.date_depot)
-            </td>
+<div style="position:relative">
 
-            <td>
-                @Html.DisplayFor(modelItem => item.ID_Prof)
-            </td>
-            <td>
-                @foreach (var lien in item.liens_complementaires.Split(","))
-                {
-                    <a href="@lien" target="_blank">@lien</a>
-                }
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SujetPFE)
-            </td>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.date_depot)
+                </th>
+                <th>
+                    Professeur
+                </th>
+                <th>
+                    Liens Envoyés
+                </th>
+                <th>
+                    Sujet PFE
+                </th>
+                <th>
+                    Etat
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
             
-            @if (item.ETAT == 1)
+            @foreach (var item in Model)
             {
-                <td style="text-align: center" class="text-success">
-                    @item.reformatState()
-                </td>
-            }
-            else
-            {
-                if (item.ETAT == -2)
-                {
-                    <td style="text-align: center" class="text-danger">
-                        @item.reformatState()
-                    </td>
-                }
-                else
-                {
+                <tr>
                     <td style="text-align: center">
-                        @item.reformatState()
+                        @Html.DisplayFor(modelItem => item.date_depot)
                     </td>
-                }
-            }
 
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ID_Prof)
+                    </td>
+                    <td>
+                        @foreach (var lien in item.liens_complementaires.Split(","))
+                        {
+                            <a href="@lien" target="_blank">@lien</a>
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SujetPFE)
+                    </td>
 
-
-
-            <td>
-                <form asp-action="cancelRequest">
-                    <input type="hidden" asp-for="@Model.ElementAt(0).ID" value="@item.ID" />
-                    @if (item.ETAT != 0)
+                    @if (item.ETAT == 1)
                     {
-                        <input type="submit" value="Annuler" class="btn btn-warning text-white" disabled />
+                        <td style="text-align: center" class="text-success">
+                            @item.reformatState()
+                        </td>
                     }
                     else
                     {
-                        <input type="submit" value="Annuler" class="btn btn-warning text-white" />
+                        if (item.ETAT == -2)
+                        {
+                            <td style="text-align: center" class="text-danger">
+                                @item.reformatState()
+                            </td>
+                        }
+                        else
+                        {
+                            <td style="text-align: center">
+                                @item.reformatState()
+                            </td>
+                        }
                     }
-                </form>
 
-            </td>
 
-            <!--
 
-        <td>
-            <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-             <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-     -->
 
-        </tr>
-}
-    </tbody>
-</table>
+                    <td>
+                        <form asp-action="cancelRequest">
+                            <input type="hidden" asp-for="@Model.ElementAt(0).ID" value="@item.ID" />
+                            @if (item.ETAT == 1)
+                            {
+                                
+                                <div style="position:absolute;top:0;bottom:0;left:0;right:0;background:rgba(0,0,0,0.5);z-index:2000">
+                                    <div class="text-white text-center" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%)">
+                                        <h2>Une demande a été accepté...</h2>
+                                        <h5>Les autres demandes sont annulés.</h5>
+                                    </div>
+                                </div>
+
+                                <input type="submit" value="Annuler" class="btn btn-warning text-white" disabled />
+                            }
+                            else
+                            {
+                                <input type="submit" value="Annuler" class="btn btn-warning text-white" />
+                            }
+                        </form>
+
+                    </td>
+
+                    <!--
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                     <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+            <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                    </td>
+             -->
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,132 @@
+﻿@model IEnumerable<PFE_EMI.Models.Display.DemandePourProfesseur>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Date de demande
+            </th>
+            <th>
+                Etudiant
+            </th>
+            <th>
+                Branche
+            </th>
+            <th>
+                Département
+            </th>
+            <th>
+                Sujet PFE
+            </th>
+            <th>
+                liens complémentaires
+            </th>
+            <th>
+                Etat
+            </th>
+
+
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            @if (item.ETAT != -1)
+            {
+                <tr class="@(item.ETAT == -2 ? "bg-light" : "")">
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => item.date_depot)
+                    </td>
+
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => item.nomEtudiant)
+                    </td>
+
+                    <td class="text-center align-middle">
+                        @Html.DisplayFor(modelItem => item.branche)
+                    </td>
+
+                    <td class="text-center align-middle">
+                        @Html.DisplayFor(modelItem => item.specialty)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => item.sujet)
+                    </td>
+
+                    <td class="align-middle">
+                        @if (item.liens.Length == 0 || item.liens == null)
+                        {
+                            <strong>SANS</strong>
+                        }
+                        else
+                        {
+                            @foreach (var lien in item.liens.Split(","))
+                            {
+                                <a href="@lien" target="_blank">@lien</a><br />
+                            }
+
+                        }
+                    </td>
+                    <td class="align-middle">
+                        @if (item.ETAT == 0)
+                        {
+                            <span>EN ATTENTE</span>
+                        }
+                        @if (item.ETAT == 1)
+                        {
+                            <span class="text-success">ACCEPTE</span>
+                        }
+                        @if (item.ETAT == -2)
+                        {
+                            <span class="text-danger">REJETE</span>
+                        }
+                    </td>
+
+
+                    <td>
+                        @if (item.ETAT == 0)
+                        {
+                            <form asp-action="AccepterDemande">
+                                <input type="hidden" asp-for="@Model.ElementAt(0).ID_ETUDIANT" value="@item.ID_ETUDIANT" />
+                                <input class="btn btn-success w-100 m-1" type="submit" value="ACCEPTER" />
+                            </form>
+
+                            <form asp-action="RefuserDemande">
+                                <input type="hidden" asp-for="@Model.ElementAt(0).ID_ETUDIANT" value="@item.ID_ETUDIANT" />
+                                <input class="btn btn-danger w-100 m-1" type="submit" value="REFUSER" />
+                            </form>
+                        }
+                        else
+                        {
+                            <form asp-action="AccepterDemande">
+                                <input type="hidden" asp-for="@Model.ElementAt(0).ID_ETUDIANT" value="@item.ID_ETUDIANT" />
+                                <input class="btn btn-success w-100 m-1" type="submit" value="ACCEPTER" disabled />
+                            </form>
+
+                            <form asp-action="RefuserDemande">
+                                <input type="hidden" asp-for="@Model.ElementAt(0).ID_ETUDIANT" value="@item.ID_ETUDIANT" />
+                                <input class="btn btn-danger w-100 m-1" type="submit" value="REFUSER" disabled />
+                            </form>
+                        }
+
+
+                        @*<a class="btn btn-success w-100 m-1" asp-action="AccepterDemande" asp-route-id="@item.ID_ETUDIANT">ACCEPTER</a><br />
+                                <a class="btn btn-danger w-100 m-1" asp-action="RefuserDemande" asp-route-id="@item.ID_ETUDIANT">REFUSER</a>
+                               <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>*@
+                    </td>
+                </tr>
+            }
+
+        }
+    </tbody>
+</table>
