@@ -372,3 +372,8 @@ E:\Workspaces\.NET\PFE_EMI_2\PFE_EMI\obj\Debug\netcoreapp3.1\Razor\Views\Remarqu
 E:\Workspaces\.NET\PFE_EMI_2\PFE_EMI\obj\Debug\netcoreapp3.1\Razor\Views\RemarqueProfs_PROF\Details.cshtml.g.cs
 E:\Workspaces\.NET\PFE_EMI_2\PFE_EMI\obj\Debug\netcoreapp3.1\Razor\Views\RemarqueProfs_PROF\Edit.cshtml.g.cs
 E:\Workspaces\.NET\PFE_EMI_2\PFE_EMI\obj\Debug\netcoreapp3.1\Razor\Views\RemarqueProfs_PROF\Index.cshtml.g.cs
+E:\Workspaces\.NET\PFE_EMI_2\PFE_EMI\obj\Debug\netcoreapp3.1\Razor\Views\DisponibiliteProf\Create.cshtml.g.cs
+E:\Workspaces\.NET\PFE_EMI_2\PFE_EMI\obj\Debug\netcoreapp3.1\Razor\Views\DisponibiliteProf\Delete.cshtml.g.cs
+E:\Workspaces\.NET\PFE_EMI_2\PFE_EMI\obj\Debug\netcoreapp3.1\Razor\Views\DisponibiliteProf\Details.cshtml.g.cs
+E:\Workspaces\.NET\PFE_EMI_2\PFE_EMI\obj\Debug\netcoreapp3.1\Razor\Views\DisponibiliteProf\Edit.cshtml.g.cs
+E:\Workspaces\.NET\PFE_EMI_2\PFE_EMI\obj\Debug\netcoreapp3.1\Razor\Views\DisponibiliteProf\Index.cshtml.g.cs

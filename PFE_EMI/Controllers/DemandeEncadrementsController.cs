@@ -17,7 +17,7 @@ namespace PFE_EMI.Controllers
         private readonly PFEContext _context;
         public Boolean hasAcceptedRequest = false;
 
-        private int ID_ETUDIANT = 1234;
+        private int ID_ETUDIANT = 12345;
 
         public DemandeEncadrementsController(PFEContext context)
         {

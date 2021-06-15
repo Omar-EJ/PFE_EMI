@@ -15,5 +15,6 @@ namespace PFE_EMI.Models.Display
         public string lienPFE { get; set; }
         public string remarque { get; set; }
         public ICollection<RemarqueProf> listeRemarques { get; set; }
+        public string liensremarque { get; set; }
     }
 }

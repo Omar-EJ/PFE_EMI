@@ -1,51 +1,34 @@
-﻿@model PFE_EMI.Models.DemandeEncadrements
+﻿@model PFE_EMI.Models.Professeur
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Disponibilité";
 }
 
-<h1>Create</h1>
+<h1>Changement de la disponibilité</h1>
 
-<h4>DemandeEncadrements</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="ID_Etudiant" class="control-label"></label>
-                <input asp-for="ID_Etudiant" class="form-control" />
-                <span asp-validation-for="ID_Etudiant" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ID_Prof" class="control-label"></label>
-                <input asp-for="ID_Prof" class="form-control" />
-                <span asp-validation-for="ID_Prof" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="liens_complementaires" class="control-label"></label>
-                <input asp-for="liens_complementaires" class="form-control" />
-                <span asp-validation-for="liens_complementaires" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SujetPFE" class="control-label"></label>
-                <input asp-for="SujetPFE" class="form-control" />
-                <span asp-validation-for="SujetPFE" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="date_depot" class="control-label"></label>
-                <input asp-for="date_depot" class="form-control" />
-                <span asp-validation-for="date_depot" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ETAT" class="control-label"></label>
-                <input asp-for="ETAT" class="form-control" />
-                <span asp-validation-for="ETAT" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+    <div class="col-12 pb-3 text-center">
+        @if (Model.Disponible == 0)
+        {
+
+            <h3 class="text-danger">Vous n'acceptez pas les demande d'encadrement</h3>
+        }
+        else
+        {
+
+            <h3 class="text-success">Vous acceptez les demande d'encadrement</h3>
+        }
+    </div>
+    <div class="col-12 py-4 text-center">
+        @if (Model.Disponible == 0)
+        {
+            <a class="btn btn-success p-3" asp-action="available" >Devenir Disponible</a>
+        }
+        else
+        {
+            <a class="btn btn-warning p-3" asp-action="available">Je ne suis plus Disponible</a>
+        }
     </div>
 </div>
 

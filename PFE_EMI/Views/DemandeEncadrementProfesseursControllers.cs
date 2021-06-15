@@ -33,13 +33,17 @@ namespace PFE_EMI.Views
                 {
                     nom = p.Fname + " " + p.Lname;
                 }
-
+                var liens = "";
+                if (item.liens_complementaires != null)
+                {
+                    liens = item.liens_complementaires;
+                }
 
                 DemandePourProfesseur dpp = new DemandePourProfesseur
                 {
                     ID_ETUDIANT = item.ID_Etudiant,
                     ETAT = item.ETAT,
-                    liens = item.liens_complementaires,
+                    liens = liens,
                     nomEtudiant = nom,
                     sujet = item.SujetPFE,
                     date_depot = item.date_depot,
@@ -54,6 +58,13 @@ namespace PFE_EMI.Views
 
 
             return View(list_res);
+        }
+
+        public IActionResult Disponibilite()
+        {
+            Professeur P = _context.Professeurs.Where<Professeur>(prof => prof.ID_prof == ID_PROF).First();
+
+            return View(P.Disponible);
         }
 
         // GET: DemandeEncadrementProfesseursControllers/Details/5
@@ -79,7 +90,19 @@ namespace PFE_EMI.Views
         // GET: DemandeEncadrementProfesseursControllers/Create
         public IActionResult Create()
         {
-            return View();
+            Professeur P = _context.Professeurs.Where<Professeur>(prof => prof.ID_prof == ID_PROF).First();
+            return View(P);
+        }
+
+       
+
+        public async Task<IActionResult> available()
+        {
+            Professeur P = _context.Professeurs.Where<Professeur>(prof => prof.ID_prof == ID_PROF).First();
+            P.Disponible = 1 - P.Disponible;
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Create));
+
         }
 
         // POST: DemandeEncadrementProfesseursControllers/Create

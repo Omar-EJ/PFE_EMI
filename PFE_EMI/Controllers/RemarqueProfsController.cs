@@ -181,7 +181,6 @@ namespace PFE_EMI.Controllers
             _context.RemarqueProf.Update(remarqueProf);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-
         }
 
 

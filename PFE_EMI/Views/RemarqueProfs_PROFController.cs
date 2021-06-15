@@ -28,11 +28,16 @@ namespace PFE_EMI.Views
             List<ListePFEEtudiants> resultat = new List<ListePFEEtudiants>();
 
             ICollection<RemarqueProf> list = _context.RemarqueProf.Where<RemarqueProf>(rem => rem.id_prof == ID_PROF).ToArray<RemarqueProf>();
-            
+            HashSet<string> mySet = new HashSet<string>();
             foreach (RemarqueProf element in list)
             {
+
                 Etudiant etud = _context.Etudiants.Where<Etudiant>(e => e.ID == element.id_student).FirstOrDefault();
                 var name = etud.Fname.ToUpper() + " " + etud.Lname;
+                if (!mySet.Add(name))
+                {
+                    continue;
+                }
                 DemandeEncadrements demande = _context.DemandeEncadrements.Where<DemandeEncadrements>(dem => dem.ID_Etudiant == element.id_student && dem.ID_Prof == ID_PROF).FirstOrDefault();
                 var pfe = demande.SujetPFE;
                 ListePFEEtudiants lpe = new ListePFEEtudiants
@@ -45,6 +50,7 @@ namespace PFE_EMI.Views
                 resultat.Add(lpe);
 
             }
+            Professeur p = _context.Professeurs.Where<Professeur>(prof => prof.ID_prof == ID_PROF).First();
 
             ICollection res = new List<ListePFEEtudiants>(resultat);
 
@@ -180,7 +186,11 @@ namespace PFE_EMI.Views
             return _context.RemarqueProf.Any(e => e.id_remarque == id);
         }
 
-        private IActionResult addCommentary(int id_Etudiant,string remarque,string liens_complementaires)
+        
+
+        [HttpPost, ActionName("addCommentary")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> addCommentary(int id_Etudiant, string remarque, string liensremarque)
         {
             RemarqueProf remarqueProf = new RemarqueProf
             {
@@ -188,12 +198,14 @@ namespace PFE_EMI.Views
                 id_prof = ID_PROF,
                 id_student = id_Etudiant,
                 remarque = remarque,
-                liens_complementaires = liens_complementaires,
+                liens_complementaires = liensremarque,
                 seen = false
             };
             _context.RemarqueProf.Add(remarqueProf);
-
-            return Details(id_Etudiant);
+            _context.SaveChanges();
+            return RedirectToAction(nameof(Details),new { id = id_Etudiant });
         }
+
+
     }
 }
