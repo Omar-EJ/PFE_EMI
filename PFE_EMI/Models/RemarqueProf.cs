@@ -7,6 +7,7 @@ namespace PFE_EMI.Models
     public class RemarqueProf
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id_remarque { get; set; }
         [ForeignKey("ID_prof")]
         public string id_prof { get; set; }

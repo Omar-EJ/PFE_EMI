@@ -1,0 +1,44 @@
+﻿@model IEnumerable<PFE_EMI.Models.RemarqueProf>
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Details</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Etudiant
+            </th>
+            <th>
+                sujet PFE
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.liens_complementaires)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.remarque)
+                </td>
+
+
+                <td>
+                    <a asp-action="Details" class="btn btn-primary" asp-route-id="@item.id_remarque">Details</a>
+                    @*<a asp-action="Edit" asp-route-id="@item.id_remarque">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.id_remarque">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.id_remarque">Delete</a>*@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

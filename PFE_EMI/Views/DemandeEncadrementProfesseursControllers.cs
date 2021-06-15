@@ -64,6 +64,8 @@ namespace PFE_EMI.Views
                 return NotFound();
             }
 
+            DemandeEncadrements demande = _context.DemandeEncadrements.Where<DemandeEncadrements>(x => x.ID_Etudiant == id && x.ID_Prof == ID_PROF).First();
+
             var demandeEncadrements = await _context.DemandeEncadrements
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (demandeEncadrements == null)

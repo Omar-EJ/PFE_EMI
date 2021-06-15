@@ -1,0 +1,83 @@
+﻿@model PFE_EMI.Models.Display.RemarqueDisplayProf
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>@Model.titrePFE</h1>
+<h3>Remarques de pour l'étudiant : <strong>@Model.etudiant</strong></h3>
+<p>lien PFE : <a href="@Model.lienPFE">@Model.lienPFE</a></p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.listeRemarques.ElementAt(0).date_remarque)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.listeRemarques.ElementAt(0).remarque)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.listeRemarques.ElementAt(0).liens_complementaires)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.listeRemarques)
+        {
+            <tr class="@(item.seen? "bg-light":"")">
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.date_remarque)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.remarque)
+                </td>
+                <td>
+                    @if (item.liens_complementaires.Length == 0)
+                    {
+                        <strong>SANS</strong>
+                    }
+                    else
+                    {
+                        @foreach (var lien in item.liens_complementaires.Split(","))
+                        {
+                            <a href="@lien" target="_blank">@lien</a><br />
+                        }
+
+                    }
+                </td>
+                <td class="text-center">
+                    @if (item.seen)
+                    {
+                        <strong>Mis à jour</strong>
+                    }
+                    else
+                    {
+                        <strong>En cours de rectification</strong>
+                    }
+
+                </td>
+                <!--
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.id_remarque">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.id_remarque">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.id_remarque">Delete</a>
+                        </td>
+                -->
+            </tr>
+        }
+
+    
+    </tbody>
+    
+</table>
+<div class="text-center">
+    <form asp-action="addCommentary">
+        <input type="hidden" value="@Model.id_Etudiant" />
+        <textarea class="form-control" placeholder="Tappez votre remarque" asp-for="@Model.remarque"></textarea>
+        <textarea class="form-control" placeholder="Entrez des liens complémentaires (sépare par des virgules)" asp-for="@Model.listeRemarques.ElementAt(0).liens_complementaires"></textarea>
+        <input type="submit" value="Ajouter" class="m-2 btn btn-primary" />
+    </form>
+</div>

@@ -367,3 +367,8 @@ E:\Workspaces\.NET\PFE_EMI_2\PFE_EMI\obj\Debug\netcoreapp3.1\Razor\Views\Demande
 E:\Workspaces\.NET\PFE_EMI_2\PFE_EMI\obj\Debug\netcoreapp3.1\Razor\Views\DemandeEncadrementProfesseursControllers\Details.cshtml.g.cs
 E:\Workspaces\.NET\PFE_EMI_2\PFE_EMI\obj\Debug\netcoreapp3.1\Razor\Views\DemandeEncadrementProfesseursControllers\Edit.cshtml.g.cs
 E:\Workspaces\.NET\PFE_EMI_2\PFE_EMI\obj\Debug\netcoreapp3.1\Razor\Views\DemandeEncadrementProfesseursControllers\Index.cshtml.g.cs
+E:\Workspaces\.NET\PFE_EMI_2\PFE_EMI\obj\Debug\netcoreapp3.1\Razor\Views\RemarqueProfs_PROF\Create.cshtml.g.cs
+E:\Workspaces\.NET\PFE_EMI_2\PFE_EMI\obj\Debug\netcoreapp3.1\Razor\Views\RemarqueProfs_PROF\Delete.cshtml.g.cs
+E:\Workspaces\.NET\PFE_EMI_2\PFE_EMI\obj\Debug\netcoreapp3.1\Razor\Views\RemarqueProfs_PROF\Details.cshtml.g.cs
+E:\Workspaces\.NET\PFE_EMI_2\PFE_EMI\obj\Debug\netcoreapp3.1\Razor\Views\RemarqueProfs_PROF\Edit.cshtml.g.cs
+E:\Workspaces\.NET\PFE_EMI_2\PFE_EMI\obj\Debug\netcoreapp3.1\Razor\Views\RemarqueProfs_PROF\Index.cshtml.g.cs

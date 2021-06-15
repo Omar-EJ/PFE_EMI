@@ -33,6 +33,12 @@ namespace PFE_EMI.Models
 
         public ICollection<DemandeEncadrements> DemandesEncadrement { get; set; }
         public ICollection<RemarqueProf> RemarquesProf { get; set; }
+
+        internal Etudiant FirstOrDefault()
+        {
+            throw new NotImplementedException();
+        }
+
         public PFE PFE { get; set; }
         public Departement Departement { get; set; }
         public Specialty SPES { get; set; }
