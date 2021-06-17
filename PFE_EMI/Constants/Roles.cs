@@ -8,9 +8,9 @@ namespace PFE_EMI.Constants
 {
     public enum Roles
     {
-        SuperAdmin,
-        Admin,
-        Basic
+        Etudiant,
+        Professeur,
+        Admin
     }
 
     public static class Permissions

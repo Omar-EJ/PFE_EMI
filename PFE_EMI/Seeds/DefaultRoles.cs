@@ -12,9 +12,9 @@ namespace PFE_EMI.Seeds
     {
         public static async Task SeedAsync(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
         {
-            await roleManager.CreateAsync(new IdentityRole(Roles.SuperAdmin.ToString()));
+            await roleManager.CreateAsync(new IdentityRole(Roles.Professeur.ToString()));
             await roleManager.CreateAsync(new IdentityRole(Roles.Admin.ToString()));
-            await roleManager.CreateAsync(new IdentityRole(Roles.Basic.ToString()));
+            await roleManager.CreateAsync(new IdentityRole(Roles.Etudiant.ToString()));
         }
 
 
@@ -33,7 +33,7 @@ namespace PFE_EMI.Seeds
                 if (user == null)
                 {
                     await userManager.CreateAsync(defaultUser, "User!1");
-                    await userManager.AddToRoleAsync(defaultUser, Roles.Basic.ToString());
+                    await userManager.AddToRoleAsync(defaultUser, Roles.Etudiant.ToString());
                 }
             }
         }
@@ -53,7 +53,7 @@ namespace PFE_EMI.Seeds
                 {
                     await userManager.CreateAsync(defaultUser, "Prof!1");
                     await userManager.AddToRoleAsync(defaultUser, Roles.Admin.ToString());
-                    await userManager.AddToRoleAsync(defaultUser, Roles.Basic.ToString());
+                    await userManager.AddToRoleAsync(defaultUser, Roles.Professeur.ToString());
                 }
             }
         }
@@ -73,9 +73,9 @@ namespace PFE_EMI.Seeds
                 if (user == null)
                 {
                     await userManager.CreateAsync(defaultUser, "Admin!1");
-                    await userManager.AddToRoleAsync(defaultUser, Roles.Basic.ToString());
+                    await userManager.AddToRoleAsync(defaultUser, Roles.Etudiant.ToString());
+                    await userManager.AddToRoleAsync(defaultUser, Roles.Professeur.ToString());
                     await userManager.AddToRoleAsync(defaultUser, Roles.Admin.ToString());
-                    await userManager.AddToRoleAsync(defaultUser, Roles.SuperAdmin.ToString());
                 }
                 await roleManager.SeedClaimsForSuperAdmin();
             }

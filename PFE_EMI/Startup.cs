@@ -35,10 +35,16 @@ namespace PFE_EMI
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddDefaultIdentity<IdentityUser>().AddRoles<IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
 
 
+            services.AddAuthorization(options => {
+                options.AddPolicy("readonlypolicy",
+                    builder => builder.RequireRole("Admin", "Manager", "Clerk"));
+                options.AddPolicy("writepolicy",
+                    builder => builder.RequireRole("Admin", "Manager"));
+            });
 
             services.AddControllersWithViews();
             services.AddRazorPages();

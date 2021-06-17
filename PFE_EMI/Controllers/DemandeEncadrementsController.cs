@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +13,7 @@ using PFE_EMI.Models.Display;
 
 namespace PFE_EMI.Controllers
 {
+    [Authorize(Roles = "Professeur")]
     public class DemandeEncadrementsController : Controller
     {
         private readonly PFEContext _context;
